@@ -118,3 +118,5 @@
 | test     | Run unit tests                                              | npm run test     | yarn test     | pnpm test     | ng test                                         |
 | test:run | Run unit tests with headless browser and without watch mode | npm run test:run | yarn test:run | pnpm test:run | ng test --watch=false --browsers ChromeHeadless |
 | lint     | Lint code                                                   | npm run lint     | yarn lint     | pnpm lint     | ng lint                                         |
+
+Quang La Tui
