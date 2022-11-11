@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, OnDestroy } from '@angular/core';
-import { DEFAULT_BASE_THEME } from '@lib/constants';
+import { DEFAULT_BASE_THEME } from '@lib/constants/constants';
 import { storage } from '@lib/utils';
 import { BehaviorSubject, fromEventPattern, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';

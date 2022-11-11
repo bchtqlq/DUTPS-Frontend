@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { REPOSITORY_URL } from '@lib/constants';
+import { REPOSITORY_URL } from '@lib/constants/constants';
 import { LogoComponent } from '../logo/logo.component';
 
 @Component({
