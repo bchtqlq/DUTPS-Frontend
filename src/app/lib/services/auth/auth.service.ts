@@ -15,6 +15,7 @@ export class AuthService {
 
   baseUrl = 'https://dutps.herokuapp.com/api/';
   apiUrl = this.baseUrl + 'Auth/Login';
+  apiUrlRegis = this.baseUrl + 'Auth/Register';
 
   isLoggedIn$ = new BehaviorSubject<boolean>(!!storage.getItem('App/session'));
 
@@ -24,6 +25,19 @@ export class AuthService {
 
   login(username: string, password: string): Observable<any> {
     return this.http.post<any>(this.apiUrl, { username, password }, this.httpOptions).pipe(
+      map((response: any) => {
+        const data = response.data;
+        if (data) {
+          storage.setItem('App/session', { user: data.username, token: data.accessToken });
+          this.isLoggedIn$.next(true);
+          return data;
+        }
+      })
+    );
+  }
+  register(username: string, email:string, password: string, confirmPassword:string): Observable<any>
+  {
+    return this.http.post<any>(this.apiUrlRegis, { username, email, password, confirmPassword }, this.httpOptions).pipe(
       map((response: any) => {
         const data = response.data;
         if (data) {
