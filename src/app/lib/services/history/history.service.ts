@@ -13,7 +13,7 @@ export class HistoryService {
   constructor(private http: HttpClient) {}
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${this.api_key}` }),
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.api_key}` }),
   };
 
   baseUrl = 'https://dutps.herokuapp.com/api/';
