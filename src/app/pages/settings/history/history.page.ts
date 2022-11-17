@@ -36,7 +36,6 @@ export class HistoryPage implements OnInit {
       this.limit = data.paging.limit;
     });
   }
-
   pageChangeEvent(event: number) {
     this.page = event;
     this.loadHistories();
