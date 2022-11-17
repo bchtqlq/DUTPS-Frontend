@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { REPOSITORY_URL } from '@lib/constants/constants';
 import { AuthService } from '@lib/services';
+import { storage } from '@lib/utils/storage/storage.utils';
 import { LogoComponent } from '../logo/logo.component';
 
 @Component({
@@ -14,6 +15,7 @@ import { LogoComponent } from '../logo/logo.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
+  username = storage.getItem('App/session')?.user;
   readonly repositoryURL = REPOSITORY_URL;
 
   constructor(private _router: Router, private _authService: AuthService) {}

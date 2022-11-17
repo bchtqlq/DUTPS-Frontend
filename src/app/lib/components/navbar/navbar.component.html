@@ -1,13 +1,163 @@
-<header class="w-full py-2 z-20 bg-white/20 dark:bg-zinc-900/40 backdrop-blur border-b border-base">
-  <div class="container flex items-center justify-between h-full mx-auto center">
+<header class="w-full px-4 py-2 z-20 bg-[#1E40AF]">
+  <div class="flex items-center justify-between h-full mx-auto center">
     <app-logo></app-logo>
 
     <nav class="flex items-center space-x-2">
-      <button (click)="onClickSignOut()" class="btn btn-secondary">
-        <!-- prettier-ignore -->
-        <svg class xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--material-symbols" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M15.325 16.275q-.275-.325-.275-.738q0-.412.275-.687l1.85-1.85H10q-.425 0-.712-.288Q9 12.425 9 12t.288-.713Q9.575 11 10 11h7.175l-1.85-1.85q-.3-.3-.3-.712q0-.413.3-.713q.275-.3.688-.3q.412 0 .687.275l3.6 3.6q.15.15.213.325q.062.175.062.375t-.062.375q-.063.175-.213.325l-3.6 3.6q-.325.325-.712.287q-.388-.037-.663-.312ZM5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h6q.425 0 .713.287Q12 3.575 12 4t-.287.712Q11.425 5 11 5H5v14h6q.425 0 .713.288q.287.287.287.712t-.287.712Q11.425 21 11 21Z"></path></svg>
-        <span class="ml-2">Log out</span>
-      </button>
+      <!-- <div class="hidden sm:block flex-shrink flex-grow-0 justify-start px-2">
+        <div class="inline-block">
+          <div class="inline-flex items-center max-w-full">
+            <button class="flex items-center flex-grow-0 flex-shrink pl-2 relative w-60 border rounded-full px-1  py-1 bg-white"
+              type="button">
+              <div class="block flex-grow flex-shrink overflow-hidden">Start your search</div>
+              <div class="flex items-center justify-center relative  h-8 w-8 rounded-full">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
+                  focusable="false" style="
+                                display: block;
+                                fill: none;
+                                height: 12px;
+                                width: 12px;
+                                stroke: currentcolor;
+                                stroke-width: 5.33333;
+                                overflow: visible;
+                            ">
+                  <g fill="none">
+                    <path
+                      d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9">
+                    </path>
+                  </g>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div> -->
+      <div class="flex items-center">
+
+        <button id="dropdownNotificationButton ml-4"
+          class="inline-flex items-center text-sm font-medium text-center text-gray-500 hover:text-gray-900 focus:outline-none dark:hover:text-white dark:text-gray-400"
+          type="button">
+          <svg class="w-6 h-6 text-white" ar ia-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
+            </path>
+          </svg>
+          <div class="flex relative">
+            <div
+              class="inline-flex relative -top-2 right-3 w-3 h-3 bg-red-500 rounded-full border-2 border-white dark:border-gray-900">
+            </div>
+          </div>
+        </button>
+
+        <a class="inline-block py-2 px-3 rounded-full" href="#">
+          <div class="flex items-center relative cursor-pointer whitespace-nowrap"><span class="text-white">Hi,
+              {{username}}</span></div>
+        </a>
+      </div>
+      <!-- <button type="button" class="inline-flex items-center bg-white focus:outline-none border relative px-2 border rounded-full hover:shadow"
+        (click)="onClickSignOut()">
+        <div class="pl-1">
+          <svg class="h-6 w-6 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" />
+            <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+            <path d="M7 12h14l-3 -3m0 6l3 -3" />
+          </svg>
+        </div>
+      </button> -->
+      <!-- component -->
+      <div class="group inline-block">
+        <button class="outline-none focus:outline-none border bg-white rounded-full flex items-center min-w-4">
+          <div class="  overflow-hidden relative w-7 h-7 bg-gray-100 rounded-full dark:bg-gray-600 p">
+            <svg class="absolute -left-1 w-9 h-9 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+              </path>
+            </svg>
+          </div>
+        </button>
+        <ul class="drop-user bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute
+  transition duration-150 ease-in-out origin-top min-w-32">
+          <li class="rounded-sm px-3 py-1 hover:bg-gray-100">Profile</li>
+          <li class="rounded-sm px-3 py-1 hover:bg-gray-100">DevOps</li>
+          <!-- <li class="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+            <button class="w-full text-left flex items-center outline-none focus:outline-none">
+              <span class="pr-1 flex-1">Langauges</span>
+              <span class="mr-auto">
+                <svg class="fill-current h-4 w-4
+            transition duration-150 ease-in-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </span>
+            </button>
+            <ul class="bg-white border rounded-sm absolute top-0 right-0
+  transition duration-150 ease-in-out origin-top-left
+  min-w-32
+  ">
+              <li class="px-3 py-1 hover:bg-gray-100">Javascript</li>
+              <li class="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+                <button class="w-full text-left flex items-center outline-none focus:outline-none">
+                  <span class="pr-1 flex-1">Python</span>
+                  <span class="mr-auto">
+                    <svg class="fill-current h-4 w-4
+                transition duration-150 ease-in-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                  </span>
+                </button>
+                <ul class="bg-white border rounded-sm absolute top-0 right-0
+      transition duration-150 ease-in-out origin-top-left
+      min-w-32
+      ">
+                  <li class="px-3 py-1 hover:bg-gray-100">2.7</li>
+                  <li class="px-3 py-1 hover:bg-gray-100">3+</li>
+                </ul>
+              </li>
+              <li class="px-3 py-1 hover:bg-gray-100">Go</li>
+              <li class="px-3 py-1 hover:bg-gray-100">Rust</li>
+            </ul>
+          </li> -->
+          <li class="flex justify-between rounded-sm px-3 py-1 hover:bg-gray-100" (click)="onClickSignOut()">Logout</li>
+        </ul>
+      </div>
+
+      <style>
+        /* since nested groupes are not supported we have to use
+     regular css for the nested dropdowns
+  */
+        li>ul {
+          transform: translatex(100%) scale(0)
+        }
+
+        li:hover>ul {
+          transform: translatex(101%) scale(1)
+        }
+
+        li>button svg {
+          transform: rotate(-90deg)
+        }
+
+        li:hover>button svg {
+          transform: rotate(-270deg)
+        }
+
+        .group:hover .group-hover\:scale-100 {
+          transform: scale(1)
+        }
+
+        .group:hover .group-hover\:-rotate-180 {
+          transform: rotate(180deg)
+        }
+
+        .scale-0 {
+          transform: scale(0)
+        }
+
+        .min-w-32 {
+          min-width: 8rem
+        }
+
+      </style>
     </nav>
   </div>
 </header>
