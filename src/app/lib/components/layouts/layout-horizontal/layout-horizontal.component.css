@@ -13,6 +13,7 @@
 app-navbar {
   grid-area: navbar;
   @apply w-full fixed top-0 left-0 right-0;
+  z-index: 1000;
 }
 
 main {
@@ -22,3 +23,4 @@ main {
 app-footer {
   grid-area: footer;
 }
+

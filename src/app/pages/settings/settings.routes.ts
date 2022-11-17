@@ -16,4 +16,9 @@ export const ROUTES: Route[] = [
     title: 'Appearance settings',
     loadComponent: async () => (await import('./appearance/appearance.page')).AppearancePage,
   },
+  {
+    path: 'history',
+    title: 'History settings',
+    loadComponent: async () => (await import('./history/history.page')).HistoryPage,
+  },
 ];
