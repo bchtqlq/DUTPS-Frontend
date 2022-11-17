@@ -1,0 +1,58 @@
+<!-- Client Table -->
+<div class="mx-4 mt-4">
+  <div class="w-full overflow-hidden rounded-lg shadow-xs">
+    <div class="w-full mb-4 overflow-x-auto">
+      <div class="relative w-full mb-10">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <input [(ngModel)]="filterTerm" type="text" id="simple-search"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Search" required>
+      </div>
+
+      <table class="w-full" *ngIf="checkinList.length !== 0">
+        <thead>
+          <tr
+            class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+            <th class="px-4 py-3">Customer</th>
+            <th class="px-4 py-3">Staff CheckIn</th>
+            <th class="px-4 py-3">License plates</th>
+            <th class="px-4 py-3">Description</th>
+            <th class="px-4 py-3">CheckIn Date</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+          <tr
+            class="text-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-gray-400"
+            *ngFor="let checkin of checkinList | filter: filterTerm | paginate: { itemsPerPage: limit, currentPage: page, totalItems: total }">
+            <td class="px-4 py-3">
+              <div class="flex items-center text-sm">
+                <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                  <img class="object-cover w-full h-full rounded-full"
+                    src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=200&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                    alt="" loading="lazy" />
+                  <!-- <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div> -->
+                </div>
+                <div>
+                  <p class="font-semibold">{{checkin.customerName}}</p>
+                </div>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-sm">{{checkin.staffName}}</td>
+            <td class="px-4 py-3 text-sm">{{checkin.vehicalLicensePlate}}</td>
+            <td class="px-4 py-3 text-sm">{{checkin.vehicalDescription}}</td>
+            <td class="px-4 py-3 text-sm">{{checkin.dateOfCheckIn}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+  </div>
+</div>
+<!-- ./Client Table -->

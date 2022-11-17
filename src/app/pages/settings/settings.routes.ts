@@ -21,4 +21,9 @@ export const ROUTES: Route[] = [
     title: 'History settings',
     loadComponent: async () => (await import('./history/history.page')).HistoryPage,
   },
+  {
+    path: 'checkin',
+    title: 'Checkin settings',
+    loadComponent: async () => (await import('./checkin/checkin.page')).CheckinPage,
+  },
 ];
