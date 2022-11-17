@@ -1,9 +1,7 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 import { JwtInterceptor, ServerErrorInterceptor } from './app/lib/interceptors';
@@ -16,7 +14,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(RouterModule.forRoot(routes), HttpClientModule, FormsModule, Ng2SearchPipeModule),
+    importProvidersFrom(RouterModule.forRoot(routes), HttpClientModule),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ServerErrorInterceptor,
