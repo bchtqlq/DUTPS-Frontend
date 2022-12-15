@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '@env/environment';
 import { storage } from '@lib/utils/storage/storage.utils';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 
@@ -13,9 +14,6 @@ export class AuthService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  baseUrl = 'https://dutps.herokuapp.com/api/';
-  apiUrl = this.baseUrl + 'Auth/Login';
-
   isLoggedIn$ = new BehaviorSubject<boolean>(!!storage.getItem('App/session'));
 
   get isLoggedIn(): boolean {
@@ -23,7 +21,7 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { username, password }, this.httpOptions).pipe(
+    return this.http.post<any>(environment.apiUrl + 'Auth/Login', { username, password }, this.httpOptions).pipe(
       map((response: any) => {
         const data = response.data;
         if (data) {
