@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '@env/environment';
 import { CheckinQuery } from '@lib/interfaces/checkin.query.interface';
 import * as queryString from 'query-string';
 import { map, Observable } from 'rxjs';
@@ -14,15 +15,15 @@ export class CheckinService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
-  baseUrl = 'https://dutps.herokuapp.com/api/';
-  apiUrl = this.baseUrl + 'CheckIns/AvailableCheckIns';
 
   getCheckin(query: CheckinQuery): Observable<History> {
     const qs = '?' + queryString.stringify(query);
-    return this.http.get<Checkin>(this.apiUrl + qs, this.httpOptions).pipe(
-      map((response: any) => {
-        return response;
-      }),
-    );
+    return this.http
+      .get<Checkin>(environment.apiUrl + 'CheckIns/AvailableCheckIns' + qs, this.httpOptions)
+      .pipe(
+        map((response: any) => {
+          return response;
+        }),
+      );
   }
 }
