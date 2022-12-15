@@ -23,4 +23,7 @@ export class SideBarComponent {
   redirectHistory() {
     this._router.navigateByUrl('/settings/history');
   }
+  redirectAccount() {
+    this._router.navigateByUrl('/settings/account');
+  }
 }
